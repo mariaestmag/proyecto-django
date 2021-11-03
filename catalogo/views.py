@@ -23,10 +23,13 @@ class BookListView(generic.ListView):
     model = Book
     template_name = 'book_list.html'
  
-
-
 class BookDetailView(generic.DetailView):
     """Generic class-based detail view for a book."""
     model = Book
     template_name = 'book_detail.html'
    
+def contacto(request): #las funciones siempre tienen compo parámetro un request, una petición
+    '''
+    Página de contacto de nuestra web
+    '''
+    return render(request, 'contacto.html')

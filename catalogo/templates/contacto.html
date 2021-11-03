@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<center>
+  <br>
+  <form action="https://formspree.io/f/mjvjljwd" method="POST">
+    <label display: inline-block;>
+      Tu email:
+      <input type="email" name="_replyto">
+    </label>
+    <br>
+
+    <label display: inline-block;>
+      Tu mensaje:
+      <textarea name="message"></textarea>
+    </label>
+    <br>
+    <button type="submit">Enviar</button>
+  </form>
+</center>
+{% endblock %}
