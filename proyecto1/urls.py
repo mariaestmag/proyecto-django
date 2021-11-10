@@ -20,7 +20,7 @@ from django import urls, views
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from catalogo.views import BookDetailView, indice, BookListView,contacto #crearemos una vista indice para poder importarla y utilizarla en patterns
+from catalogo.views import AuthorDetailView, AuthorListView, BookDetailView, DeleteAuthor, ModifyAuthor, indice, BookListView,contacto,SearchResultsListView,create_author,ModifyAuthor, DeleteAuthor #crearemos una vista indice para poder importarla y utilizarla en patterns
 
 urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),
@@ -28,6 +28,11 @@ urlpatterns = [
     path('', indice, name ='indice'), # si no hay path, que meta la función que le vamos a definir nosotros para esa vista
     path('books', BookListView.as_view(), name='books'),
     path('book/<int:pk>', BookDetailView.as_view(), name='book-detail'),
-    path('contacto', contacto, name ='contacto'), 
-
+    path('authors', AuthorListView.as_view(), name='authors'),
+    path('author/<int:pk>', AuthorDetailView.as_view(), name='author-detail'),
+    path('author/create', create_author, name='create_author'),
+    path('author/modify/<int:pk>', ModifyAuthor.as_view(), name='modify_author'),
+    path('author/delete/<int:pk>', DeleteAuthor.as_view(), name='delete_author'),
+    path('contacto', contacto, name ='contacto'),
+    path('search', SearchResultsListView.as_view(), name='search'),
 ]

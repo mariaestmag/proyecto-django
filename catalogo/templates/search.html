@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+<form class="form-inline mt-2 mt-md-0" action="{% url 'search' %}" method="get">
+    <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+</form>
+
+{% if book_list %}
+<br>
+<h2>LISTA DE LIBROS BUSCADOS</h2>
+<ul>
+    {% for book in book_list %}
+    <li>
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay libros en la biblioteca.</p>
+{% endif %}
+
+{% endblock %}

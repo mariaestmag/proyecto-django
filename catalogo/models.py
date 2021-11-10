@@ -23,7 +23,9 @@ class Author(models.Model):
 
     def __str__(self):
         return self.first_name
-        
+
+    def get_absolute_url(self):
+        return reverse('author-detail', args=[str(self.id)])
         
 class Book(models.Model):
     '''Libro para aplicación de bibioteca...'''

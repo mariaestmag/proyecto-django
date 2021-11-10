@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Crear nuevo autor:</h3>
+
+<form action="" method="post"><!--Deja action en blanco para con una misma dirección poder hacer dos cosas: GET y POST -->
+
+    {% csrf_token %} <!--OBLIGATORIO SIEMPRE en POST-->
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Enviar" />
+
+</form>
+{% endblock %}
